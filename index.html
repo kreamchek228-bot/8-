@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Для Малики - С 8 Марта!</title>
+    <title>Демо-версия подарка!</title>
     
     <!-- Подключение красивых шрифтов от Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,7 +53,7 @@
             font-family: 'Caveat', cursive;
         }
 
-        /* HERO СЕКЦИЯ (ГЛАВНЫЙ ЭКРАН) */
+        /* HERO СЕКЦИЯ */
         .hero {
             position: relative;
             height: 100vh;
@@ -62,7 +62,6 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* Твоя новая картинка на фон */
             background-image: url('https://i.pinimg.com/736x/61/e9/6f/61e96f75cdbd4a75849655ca5d4e0181.jpg');
             background-size: cover;
             background-position: center;
@@ -73,7 +72,6 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            /* Сделал фон менее белым и уменьшил размытие, чтобы фото было лучше видно */
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(2px);
             z-index: 1;
@@ -116,7 +114,7 @@
             animation: bounce 2s infinite;
         }
 
-        /* НАШЕ ВРЕМЯ (СЧЕТЧИК) */
+        /* НАШЕ ВРЕМЯ */
         .timer-section {
             padding: 80px 20px;
             text-align: center;
@@ -263,7 +261,7 @@
             z-index: 1;
         }
 
-        /* SPOTIFY PREMIUM ПОДАРОК */
+        /* SPOTIFY PREMIUM ПОДАРОК (ДЕМО ВЕРСИЯ) */
         .premium-section {
             padding: 60px 20px 20px;
             display: flex;
@@ -322,56 +320,18 @@
         .credentials-box {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
-            padding: 25px;
+            padding: 30px;
             margin-bottom: 25px;
             border: 1px dashed rgba(29, 185, 84, 0.5);
         }
 
-        .cred-item {
-            margin-bottom: 15px;
-        }
-
-        .cred-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .cred-label {
-            display: block;
-            font-size: 0.9rem;
+        .demo-text {
+            font-size: 1.8rem;
             color: #1DB954;
-            margin-bottom: 8px;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .cred-value {
-            display: inline-block;
-            font-family: monospace;
-            font-size: 1.3rem;
-            color: white;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 12px 20px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            word-break: break-all;
-            border: 1px solid transparent;
-        }
-
-        .cred-value:hover {
-            background: #1DB954;
-            color: #fff;
-            border-color: #fff;
-            transform: scale(1.02);
-        }
-
-        .hint {
-            font-size: 0.85rem !important;
-            color: #888 !important;
-            margin-top: 15px !important;
-            margin-bottom: 0 !important;
-            font-style: italic;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
         }
 
         .premium-footer {
@@ -385,7 +345,7 @@
         .playlist-section {
             padding: 40px 20px 80px;
             text-align: center;
-            max-width: 800px;
+            max-width: 900px; /* Немного расширил для огромного текста */
             margin: 0 auto;
         }
 
@@ -414,8 +374,20 @@
         .playlist-card p {
             font-size: 1.15rem;
             color: var(--text-gray);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             line-height: 1.6;
+        }
+
+        /* ОГРОМНЫЙ ТЕКСТ-ПРИЗЫВ */
+        .huge-action-text {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--accent-pink);
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin: 40px 0;
+            text-shadow: 2px 2px 10px rgba(255, 143, 179, 0.3);
+            animation: bounce 3s infinite;
         }
 
         .spotify-btn {
@@ -426,33 +398,33 @@
             background: #1DB954;
             color: white;
             font-weight: 700;
-            font-size: 1.2rem;
-            padding: 16px 40px;
+            font-size: 1.4rem;
+            padding: 20px 50px;
             border-radius: 50px;
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 10px 25px rgba(29, 185, 84, 0.4);
             font-family: 'Nunito', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .spotify-btn:hover {
-            transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 15px 35px rgba(29, 185, 84, 0.6);
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(29, 185, 84, 0.6);
             background: #1ed760;
         }
 
         .spotify-icon {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             fill: white;
             animation: gentlePulse 2s infinite ease-in-out;
         }
 
         @keyframes gentlePulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
 
@@ -555,11 +527,7 @@
             line-height: 1.6;
             color: var(--text-dark);
             margin-bottom: 25px;
-            text-align: left;
-        }
-        
-        .modal-message p {
-            margin-bottom: 12px;
+            text-align: center;
         }
 
         .modal-signature {
@@ -612,10 +580,11 @@
             .time-box { min-width: 120px; padding: 15px; }
             .time-box span { font-size: 2rem; }
             .metrics-section h2, .playlist-card h2, .premium-card h3 { font-size: 2.2rem; }
+            .huge-action-text { font-size: 1.8rem; margin: 30px 0; }
+            .demo-text { font-size: 1.3rem; }
             .ascii-heart { font-size: 0.8rem; }
             .modal-content { padding: 30px 20px; }
-            .spotify-btn { font-size: 1rem; padding: 14px 25px; }
-            .cred-value { font-size: 1.1rem; padding: 10px 15px; }
+            .spotify-btn { font-size: 1.1rem; padding: 16px 30px; }
         }
     </style>
 </head>
@@ -659,7 +628,6 @@
         <p class="reveal">Брянск — Астана. Расстояние — это лишь числа. Вот как оно выглядит:</p>
         
         <div class="grid-container">
-            <!-- 1. Minecraft -->
             <div class="card reveal">
                 <img src="https://i.postimg.cc/51Z2HYNq/photo-1-2026-03-07-22-37-25.jpg" alt="Minecraft" class="card-img">
                 <h3>Майнкрафт в реальности</h3>
@@ -667,7 +635,6 @@
                 <p>Именно столько блоков пришлось бы поставить друг за другом в игре, чтобы построить мост от меня прямо к тебе.</p>
             </div>
 
-            <!-- 2. Anime -->
             <div class="card reveal">
                 <img src="https://i.pinimg.com/736x/a9/62/e3/a962e30f192e78e7490dfe5ea4199218.jpg" alt="Anime" class="card-img">
                 <h3>Аниме-марафон</h3>
@@ -675,7 +642,6 @@
                 <p>Столько эпизодов можно посмотреть, если идти к тебе пешком со скоростью 5 км/ч. (Это целых 502 часа пути!)</p>
             </div>
 
-            <!-- 3. Genshin Impact -->
             <div class="card reveal">
                 <img src="https://i.postimg.cc/vbsdFWmZ/photo-3-2026-03-07-22-37-25.jpg" alt="Genshin" class="card-img">
                 <h3>Фарм примогемов</h3>
@@ -683,7 +649,6 @@
                 <p>Столько примогемов в Genshin Impact можно было бы нафармить за время пути ко тебе пешком. Точно хватило бы на желанную легу!</p>
             </div>
 
-            <!-- 4. ЕНТ -->
             <div class="card reveal">
                 <img src="https://i.postimg.cc/VzsQ5mMV/photo-4-2026-03-07-22-37-25.jpg" alt="Exams" class="card-img">
                 <h3>Подготовка к ЕНТ</h3>
@@ -691,7 +656,6 @@
                 <p>Именно столько раз можно было бы написать ЕНТ от начала до конца за эти 502 часа. Но я уверен, ты сдашь всё на отлично с первого раза!</p>
             </div>
 
-            <!-- 5. Courier -->
             <div class="card reveal">
                 <img src="https://i.postimg.cc/4X8C9qQk/photo-5-2026-03-07-22-37-25.jpg" alt="Courier" class="card-img">
                 <h3>Курьерский марафон</h3>
@@ -699,7 +663,6 @@
                 <p>Нужно отработать курьеру, проходя по 25 километров каждый день, чтобы доставить тебе цветы лично от меня.</p>
             </div>
 
-            <!-- 6. Плед уюта -->
             <div class="card reveal">
                 <img src="https://i.postimg.cc/hKCFd61L/photo-6-2026-03-07-22-37-25.jpg" alt="Cozy Blanket" class="card-img">
                 <h3>Огромный теплый плед</h3>
@@ -707,7 +670,6 @@
                 <p>Если бы мы связали плед длиной с это расстояние, мы могли бы завернуться в него тысячу раз и бесконечно долго валяться в обнимку.</p>
             </div>
 
-            <!-- 7. Phone Power -->
             <div class="card reveal">
                 <img src="https://i.postimg.cc/bYf4Phpx/photo-7-2026-03-07-22-37-25.jpg" alt="Phone" class="card-img">
                 <h3>Заряд батареи</h3>
@@ -715,7 +677,6 @@
                 <p>Столько раз полностью разрядится телефон от прослушивания музыки, пока я буду преодолевать этот путь пешком.</p>
             </div>
 
-            <!-- 8. Рилсы -->
             <div class="card reveal">
                 <img src="https://i.postimg.cc/XWRRdwd2/photo-8-2026-03-07-22-37-25.jpg" alt="TikTok" class="card-img">
                 <h3>Смешные рилсы</h3>
@@ -723,7 +684,6 @@
                 <p>Столько тиктоков и рилсов мы могли бы посмотреть и скинуть друг другу, пока я шел бы к тебе пешком.</p>
             </div>
 
-            <!-- 9. Pizza -->
             <div class="card reveal">
                 <img src="https://i.postimg.cc/7qZdwXrw/photo-9-2026-03-07-22-37-25.jpg" alt="Pizza" class="card-img">
                 <h3>Доставка пиццы</h3>
@@ -731,7 +691,6 @@
                 <p>Примерно столько ехала бы горячая пицца на машине без остановок. Но остыть она бы не успела, ведь моя любовь горячее!</p>
             </div>
 
-            <!-- 10. Heartbeat -->
             <div class="card reveal">
                 <img src="https://i.postimg.cc/9WvnPhRw/photo-10-2026-03-07-22-37-25.jpg" alt="Heart" class="card-img">
                 <h3>В ритме сердца</h3>
@@ -739,7 +698,6 @@
                 <p>Ударов сделало сердце каждого из нас с 7 июля 2024 года, каждую секунду скучая по тебе.</p>
             </div>
 
-            <!-- 11. Шаги в реальности -->
             <div class="card reveal">
                 <img src="https://i.postimg.cc/b8f5sqfx/photo-11-2026-03-07-22-37-25.jpg" alt="Steps" class="card-img">
                 <h3>Шаги навстречу</h3>
@@ -747,7 +705,6 @@
                 <p>Именно столько шагов мне нужно сделать, чтобы преодолеть это расстояние и наконец-то крепко тебя обнять.</p>
             </div>
 
-            <!-- 12. Cat Steps (Мелача) -->
             <div class="card reveal">
                 <img src="https://i.postimg.cc/FN9nVGRG/photo-12-2026-03-07-22-37-25.jpg" alt="Cat" class="card-img">
                 <h3>Кошачьи шаги</h3>
@@ -755,7 +712,6 @@
                 <p>Столько маленьких шажков сделала бы Мелача, чтобы добраться из Брянска до Астаны и замурчать рядом.</p>
             </div>
 
-            <!-- 13. Coffee -->
             <div class="card reveal">
                 <img src="https://i.postimg.cc/SmRTwsc2/photo-13-2026-03-07-22-37-25.jpg" alt="Coffee" class="card-img">
                 <h3>Кофейные остановки</h3>
@@ -763,7 +719,6 @@
                 <p>Столько кофе мне нужно было бы выпить, чтобы ехать к тебе на машине без сна и остановок. ( кофиии печенькоооо только я так моггг)</p>
             </div>
 
-            <!-- 14. Song Loop -->
             <div class="card reveal">
                 <img src="https://i.postimg.cc/bz26wB6R/photo-14-2026-03-07-22-37-25.jpg" alt="Music" class="card-img">
                 <h3>Наша песня</h3>
@@ -771,7 +726,6 @@
                 <p>Можно прослушать нашу любимую песню подряд по дороге к тебе, и она всё равно не надоест.</p>
             </div>
 
-            <!-- 15. Miss You -->
             <div class="card reveal">
                 <img src="https://i.postimg.cc/54dsYST2/photo-15-2026-03-07-22-37-25.jpg" alt="Messages" class="card-img">
                 <h3>Сообщения «Скучаю»</h3>
@@ -781,7 +735,7 @@
         </div>
     </section>
 
-    <!-- СЮРПРИЗ: ПОДАРОК SPOTIFY PREMIUM -->
+    <!-- СЮРПРИЗ: ПОДАРОК SPOTIFY PREMIUM (ДЕМО-ВЕРСИЯ) -->
     <section class="premium-section reveal">
         <div class="premium-card">
             <div class="premium-badge">✨ Сюрприз! ✨</div>
@@ -789,28 +743,25 @@
             <p>У тебя же нет <strong>Spotify Premium</strong> 🥺<br>Как хорошо, что я его для тебя купил! Теперь ты сможешь слушать нашу музыку без всякой рекламы.</p>
             
             <div class="credentials-box">
-                <div class="cred-item">
-                    <span class="cred-label">Почта для входа:</span>
-                    <span class="cred-value" onclick="copyText('parmanmalika@gmail.com', this)">parmanmalika@gmail.com</span>
-                </div>
-                <div class="cred-item">
-                    <span class="cred-label">Секретный пароль:</span>
-                    <span class="cred-value" onclick="copyText('LubluTebyaKotya!!!', this)">LubluTebyaKotya!!!</span>
-                </div>
-                <p class="hint">Нажми на текст, чтобы скопировать 🤫</p>
+                <div class="demo-text">Это демо версия подаркааааа! 😜</div>
+                <p style="color: #ccc; font-size: 1.1rem; margin-top: 10px;">(Тут будут секретные логин и пароль, но для друзей мы их спрятали)</p>
             </div>
             
             <p class="premium-footer">Входи в свой аккаунт, любимая! 💚</p>
         </div>
     </section>
 
-    <!-- ИНТЕРАКТИВНАЯ КНОПКА SPOTIFY ПЛЕЙЛИСТА -->
+    <!-- ИНТЕРАКТИВНАЯ КНОПКА SPOTIFY С ОГРОМНЫМ ТЕКСТОМ -->
     <section class="playlist-section reveal">
         <div class="playlist-card">
             <h2>Наш саундтрек 🎶</h2>
             <p>Этот плейлист — олицетворение моей любви. В нём собрано всё: от эмоций, похожих на резкий выстрел из дробовика, до самого уютного вечера с тобой на кухне.</p>
             
-            <a href="https://open.spotify.com/playlist/77F7tIROWo6BfLIsFOuPpl?si=10D5q--AQKSEtNz6rnVXGA&pi=tBNULBE1Qteuk" target="_blank" class="spotify-btn">
+            <div class="huge-action-text">
+                Давай же зацени наш скрытый плейлист с маликой нажми на кнопочку 👇
+            </div>
+
+            <a href="https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8?si=a1a15f8cac304d3d" target="_blank" class="spotify-btn">
                 <svg class="spotify-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.84.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.84.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.18-1.2-.181-1.38-.781-.18-.6.18-1.2.78-1.381 4.26-1.26 11.28-1.02 15.72 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
                 </svg>
@@ -841,15 +792,12 @@
           ♥
             </div>
             
-            <!-- ТЕКСТ -->
+            <!-- ТЕКСТ ДЛЯ ДЕМО ВЕРСИИ -->
             <div class="modal-message">
                 <h3 style="font-size: 2.2rem; margin-bottom: 20px; text-align: center; color: var(--accent-pink); font-family: 'Caveat', cursive;">С 8 Марта, моя Малика! 🌸</h3>
-                <p>Коть я не могу подарить тебе какой-то подарок за деньги или заказать цветы но я просто не мог оставить тебя без внимания в твой день</p>
-                <p>На тебя сейчас свалилось столько стресса и волнения все таки скоро экзамен Но коть знай что бы ни случилось что бы ни было в нашей жизни мы всегда будем вместе</p>
-                <p>Наша любовь сильнее расстояния времени и денег Я рад что у меня есть такой прекрасный человек как ты спасибо что ты всегда рядышком</p>
-                <p>Коть пусть ты будешь всю жизнь светиться так же ярко как и сейчас ты мое солнышко и я люблю тебя сильнее жизни Все обязательно будет хорошо</p>
-                <p style="text-align: center; margin-top: 15px; font-weight: bold; color: var(--accent-pink);">С праздником тебя моя дорогая моя хорошенькая булка ❤️</p>
-                <p style="text-align: center; font-size: 0.9em; color: var(--text-gray); font-style: italic;">(я старался надеюсь тебе понравится этот сайт)</p>
+                
+                <p style="font-size: 2rem; font-weight: 800; color: var(--text-dark); margin: 40px 0;">тцтцтц это бета версия тут пуустоо 👀</p>
+                
             </div>
 
             <div class="modal-signature">Твой любимый</div>
@@ -882,19 +830,6 @@
 
         setInterval(updateTimer, 1000);
         updateTimer();
-
-        // 2. ФУНКЦИЯ КОПИРОВАНИЯ ТЕКСТА
-        function copyText(text, element) {
-            navigator.clipboard.writeText(text).then(() => {
-                const originalText = element.innerText;
-                element.innerText = "Скопировано! 💚";
-                setTimeout(() => {
-                    element.innerText = originalText;
-                }, 2000);
-            }).catch(err => {
-                console.error('Не удалось скопировать текст: ', err);
-            });
-        }
 
         // 3. АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
         const reveals = document.querySelectorAll('.reveal');
