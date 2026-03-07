@@ -53,7 +53,7 @@
             font-family: 'Caveat', cursive;
         }
 
-        /* HERO СЕКЦИЯ */
+        /* HERO СЕКЦИЯ (ГЛАВНЫЙ ЭКРАН) */
         .hero {
             position: relative;
             height: 100vh;
@@ -62,7 +62,8 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-image: url('https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            /* Твоя новая картинка на фон */
+            background-image: url('https://i.pinimg.com/736x/61/e9/6f/61e96f75cdbd4a75849655ca5d4e0181.jpg');
             background-size: cover;
             background-position: center;
             padding: 20px;
@@ -72,8 +73,9 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(4px);
+            /* Сделал фон менее белым и уменьшил размытие, чтобы фото было лучше видно */
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(2px);
             z-index: 1;
         }
 
@@ -261,7 +263,7 @@
             z-index: 1;
         }
 
-        /* НОВАЯ СЕКЦИЯ: SPOTIFY PREMIUM ПОДАРОК */
+        /* SPOTIFY PREMIUM ПОДАРОК */
         .premium-section {
             padding: 60px 20px 20px;
             display: flex;
@@ -665,7 +667,7 @@
                 <p>Именно столько блоков пришлось бы поставить друг за другом в игре, чтобы построить мост от меня прямо к тебе.</p>
             </div>
 
-            <!-- 2. Anime (ОБНОВЛЕННАЯ КАРТИНКА PINTEREST) -->
+            <!-- 2. Anime -->
             <div class="card reveal">
                 <img src="https://i.pinimg.com/736x/a9/62/e3/a962e30f192e78e7490dfe5ea4199218.jpg" alt="Anime" class="card-img">
                 <h3>Аниме-марафон</h3>
