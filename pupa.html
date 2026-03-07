@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для Малики - С 8 Марта!</title>
+    
+    <!-- Подключение красивых шрифтов от Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS ПЕРЕМЕННЫЕ (Палитра) */
+        :root {
+            --pink-light: #fdf1f4;
+            --blue-soft: #e0f0ff;
+            --lavender: #f3e8ff;
+            --cream: #fffdd0;
+            --text-dark: #4a4a4a;
+            --text-gray: #6b6b6b;
+            --accent-pink: #ff8fb3;
+            --accent-gold: #ffd700;
+            --glass-bg: rgba(255, 255, 255, 0.35);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --glass-shadow: 0 8px 32px 0 rgba(143, 153, 204, 0.15);
+        }
+
+        /* БАЗОВЫЕ НАСТРОЙКИ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--pink-light), var(--blue-soft), var(--lavender));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1, h2, h3, .handwritten {
+            font-family: 'Caveat', cursive;
+        }
+
+        /* HERO СЕКЦИЯ */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-image: url('https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 50px 40px;
+            border-radius: 30px;
+            box-shadow: var(--glass-shadow);
+            max-width: 600px;
+            animation: fadeInDown 1.5s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            color: var(--accent-pink);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.7);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            z-index: 2;
+            font-size: 2rem;
+            color: var(--accent-pink);
+            animation: bounce 2s infinite;
+        }
+
+        /* НАШЕ ВРЕМЯ (СЧЕТЧИК) */
+        .timer-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .timer-section h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .timer-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .time-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 20px 30px;
+            min-width: 140px;
+            box-shadow: var(--glass-shadow);
+            transition: transform 0.3s;
+        }
+
+        .time-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-pink);
+        }
+
+        .time-box .label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            margin-top: 5px;
+        }
+
+        /* СЕТКА МЕТРИК РАССТОЯНИЯ */
+        .metrics-section {
+            padding: 60px 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .metrics-section h2 {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .metrics-section > p {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            color: var(--text-gray);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: var(--glass-shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 143, 179, 0.3);
+            border-color: var(--accent-pink);
+        }
+
+        .card-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            border: 4px solid #fff;
+            box-shadow: 0 8px 20px rgba(255, 143, 179, 0.4);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.06) rotate(3deg);
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card .stat {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-pink);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* НОВАЯ СЕКЦИЯ: SPOTIFY PREMIUM ПОДАРОК */
+        .premium-section {
+            padding: 60px 20px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .premium-card {
+            background: linear-gradient(145deg, #191414, #282828);
+            color: white;
+            border-radius: 30px;
+            padding: 45px 30px;
+            max-width: 650px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(29, 185, 84, 0.25);
+            border: 2px solid #1DB954;
+            position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(29, 185, 84, 0.4);
+        }
+
+        .premium-badge {
+            background: linear-gradient(45deg, #ffd700, #ffb300);
+            color: #000;
+            font-weight: 800;
+            display: inline-block;
+            padding: 8px 25px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            animation: gentlePulse 2s infinite ease-in-out;
+        }
+
+        .premium-card h3 {
+            font-size: 2.2rem;
+            color: #1DB954;
+            margin-bottom: 15px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+        }
+
+        .premium-card > p {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: #b3b3b3;
+            margin-bottom: 30px;
+        }
+
+        .credentials-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px dashed rgba(29, 185, 84, 0.5);
+        }
+
+        .cred-item {
+            margin-bottom: 15px;
+        }
+
+        .cred-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cred-label {
+            display: block;
+            font-size: 0.9rem;
+            color: #1DB954;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .cred-value {
+            display: inline-block;
+            font-family: monospace;
+            font-size: 1.3rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 12px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            word-break: break-all;
+            border: 1px solid transparent;
+        }
+
+        .cred-value:hover {
+            background: #1DB954;
+            color: #fff;
+            border-color: #fff;
+            transform: scale(1.02);
+        }
+
+        .hint {
+            font-size: 0.85rem !important;
+            color: #888 !important;
+            margin-top: 15px !important;
+            margin-bottom: 0 !important;
+            font-style: italic;
+        }
+
+        .premium-footer {
+            font-family: 'Caveat', cursive;
+            font-size: 2.2rem !important;
+            color: white !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* СЕКЦИЯ С ПЛЕЙЛИСТОМ SPOTIFY */
+        .playlist-section {
+            padding: 40px 20px 80px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .playlist-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 40px 30px;
+            box-shadow: var(--glass-shadow);
+            transition: transform 0.4s ease;
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(29, 185, 84, 0.2);
+            border-color: #1DB954;
+        }
+
+        .playlist-card h2 {
+            font-size: 2.8rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .playlist-card p {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .spotify-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #1DB954;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(29, 185, 84, 0.4);
+            font-family: 'Nunito', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .spotify-btn:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 15px 35px rgba(29, 185, 84, 0.6);
+            background: #1ed760;
+        }
+
+        .spotify-icon {
+            width: 28px;
+            height: 28px;
+            fill: white;
+            animation: gentlePulse 2s infinite ease-in-out;
+        }
+
+        @keyframes gentlePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* ФИНАЛЬНАЯ СЕКЦИЯ И КНОПКА ОТКРЫТКИ */
+        .final-section {
+            text-align: center;
+            padding: 20px 20px 100px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, var(--accent-pink), #ff9a9e);
+            color: #fff;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(255, 143, 179, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 143, 179, 0.6);
+        }
+
+        /* МОДАЛЬНОЕ ОКНО */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: var(--glass-shadow);
+            transform: scale(0.8) translateY(50px);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-gray);
+            border: none;
+            background: none;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: var(--accent-pink);
+        }
+
+        .ascii-heart {
+            font-family: monospace;
+            color: var(--accent-pink);
+            font-size: 1.1rem;
+            line-height: 1.1;
+            margin: 10px 0 20px;
+            white-space: pre;
+            font-weight: bold;
+        }
+
+        .modal-message {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        .modal-message p {
+            margin-bottom: 12px;
+        }
+
+        .modal-signature {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            color: var(--accent-pink);
+            text-align: right;
+        }
+
+        /* АНИМАЦИИ ПРИ СКРОЛЛЕ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            color: var(--accent-pink);
+            pointer-events: none;
+            animation: floatUp 4s forwards linear;
+            z-index: 1000;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1.5) rotate(360deg); opacity: 0; }
+        }
+
+        /* Адаптив */
+        @media (max-width: 600px) {
+            .hero-content h1 { font-size: 3.5rem; }
+            .hero-content { padding: 40px 20px; margin: 0 15px; }
+            .time-box { min-width: 120px; padding: 15px; }
+            .time-box span { font-size: 2rem; }
+            .metrics-section h2, .playlist-card h2, .premium-card h3 { font-size: 2.2rem; }
+            .ascii-heart { font-size: 0.8rem; }
+            .modal-content { padding: 30px 20px; }
+            .spotify-btn { font-size: 1rem; padding: 14px 25px; }
+            .cred-value { font-size: 1.1rem; padding: 10px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO СЕКЦИЯ -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Для Малики</h1>
+            <p>Самой прекрасной девушке.<br>С 8 Марта, любимая! 🌷</p>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </header>
+
+    <!-- ТАЙМЕР ОТНОШЕНИЙ -->
+    <section class="timer-section reveal">
+        <h2>Наше время вместе</h2>
+        <div class="timer-grid">
+            <div class="time-box">
+                <span id="days">0</span>
+                <div class="label">Дней</div>
+            </div>
+            <div class="time-box">
+                <span id="hours">0</span>
+                <div class="label">Часов</div>
+            </div>
+            <div class="time-box">
+                <span id="minutes">0</span>
+                <div class="label">Минут</div>
+            </div>
+            <div class="time-box">
+                <span id="seconds">0</span>
+                <div class="label">Секунд</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- МЕТРИКИ РАССТОЯНИЯ -->
+    <section class="metrics-section">
+        <h2 class="reveal">2 510 километров</h2>
+        <p class="reveal">Брянск — Астана. Расстояние — это лишь числа. Вот как оно выглядит:</p>
+        
+        <div class="grid-container">
+            <!-- 1. Minecraft -->
+            <div class="card reveal">
+                <img src="https://i.postimg.cc/51Z2HYNq/photo-1-2026-03-07-22-37-25.jpg" alt="Minecraft" class="card-img">
+                <h3>Майнкрафт в реальности</h3>
+                <div class="stat">2 510 000</div>
+                <p>Именно столько блоков пришлось бы поставить друг за другом в игре, чтобы построить мост от меня прямо к тебе.</p>
+            </div>
+
+            <!-- 2. Anime (ОБНОВЛЕННАЯ КАРТИНКА PINTEREST) -->
+            <div class="card reveal">
+                <img src="https://i.pinimg.com/736x/a9/62/e3/a962e30f192e78e7490dfe5ea4199218.jpg" alt="Anime" class="card-img">
+                <h3>Аниме-марафон</h3>
+                <div class="stat">1 255 серий</div>
+                <p>Столько эпизодов можно посмотреть, если идти к тебе пешком со скоростью 5 км/ч. (Это целых 502 часа пути!)</p>
+            </div>
+
+            <!-- 3. Genshin Impact -->
+            <div class="card reveal">
+                <img src="https://i.postimg.cc/vbsdFWmZ/photo-3-2026-03-07-22-37-25.jpg" alt="Genshin" class="card-img">
+                <h3>Фарм примогемов</h3>
+                <div class="stat">~ 15 000 гемов</div>
+                <p>Столько примогемов в Genshin Impact можно было бы нафармить за время пути ко тебе пешком. Точно хватило бы на желанную легу!</p>
+            </div>
+
+            <!-- 4. ЕНТ -->
+            <div class="card reveal">
+                <img src="https://i.postimg.cc/VzsQ5mMV/photo-4-2026-03-07-22-37-25.jpg" alt="Exams" class="card-img">
+                <h3>Подготовка к ЕНТ</h3>
+                <div class="stat">125 раз</div>
+                <p>Именно столько раз можно было бы написать ЕНТ от начала до конца за эти 502 часа. Но я уверен, ты сдашь всё на отлично с первого раза!</p>
+            </div>
+
+            <!-- 5. Courier -->
+            <div class="card reveal">
+                <img src="https://i.postimg.cc/4X8C9qQk/photo-5-2026-03-07-22-37-25.jpg" alt="Courier" class="card-img">
+                <h3>Курьерский марафон</h3>
+                <div class="stat">100 смен</div>
+                <p>Нужно отработать курьеру, проходя по 25 километров каждый день, чтобы доставить тебе цветы лично от меня.</p>
+            </div>
+
+            <!-- 6. Плед уюта -->
+            <div class="card reveal">
+                <img src="https://i.postimg.cc/hKCFd61L/photo-6-2026-03-07-22-37-25.jpg" alt="Cozy Blanket" class="card-img">
+                <h3>Огромный теплый плед</h3>
+                <div class="stat">2 510 км уюта</div>
+                <p>Если бы мы связали плед длиной с это расстояние, мы могли бы завернуться в него тысячу раз и бесконечно долго валяться в обнимку.</p>
+            </div>
+
+            <!-- 7. Phone Power -->
+            <div class="card reveal">
+                <img src="https://i.postimg.cc/bYf4Phpx/photo-7-2026-03-07-22-37-25.jpg" alt="Phone" class="card-img">
+                <h3>Заряд батареи</h3>
+                <div class="stat">34 заряда</div>
+                <p>Столько раз полностью разрядится телефон от прослушивания музыки, пока я буду преодолевать этот путь пешком.</p>
+            </div>
+
+            <!-- 8. Рилсы -->
+            <div class="card reveal">
+                <img src="https://i.postimg.cc/XWRRdwd2/photo-8-2026-03-07-22-37-25.jpg" alt="TikTok" class="card-img">
+                <h3>Смешные рилсы</h3>
+                <div class="stat">~ 60 000 видео</div>
+                <p>Столько тиктоков и рилсов мы могли бы посмотреть и скинуть друг другу, пока я шел бы к тебе пешком.</p>
+            </div>
+
+            <!-- 9. Pizza -->
+            <div class="card reveal">
+                <img src="https://i.postimg.cc/7qZdwXrw/photo-9-2026-03-07-22-37-25.jpg" alt="Pizza" class="card-img">
+                <h3>Доставка пиццы</h3>
+                <div class="stat">~ 2 дня</div>
+                <p>Примерно столько ехала бы горячая пицца на машине без остановок. Но остыть она бы не успела, ведь моя любовь горячее!</p>
+            </div>
+
+            <!-- 10. Heartbeat -->
+            <div class="card reveal">
+                <img src="https://i.postimg.cc/9WvnPhRw/photo-10-2026-03-07-22-37-25.jpg" alt="Heart" class="card-img">
+                <h3>В ритме сердца</h3>
+                <div class="stat" id="dynamic-heartbeats">0</div>
+                <p>Ударов сделало сердце каждого из нас с 7 июля 2024 года, каждую секунду скучая по тебе.</p>
+            </div>
+
+            <!-- 11. Шаги в реальности -->
+            <div class="card reveal">
+                <img src="https://i.postimg.cc/b8f5sqfx/photo-11-2026-03-07-22-37-25.jpg" alt="Steps" class="card-img">
+                <h3>Шаги навстречу</h3>
+                <div class="stat">3 585 000 шагов</div>
+                <p>Именно столько шагов мне нужно сделать, чтобы преодолеть это расстояние и наконец-то крепко тебя обнять.</p>
+            </div>
+
+            <!-- 12. Cat Steps (Мелача) -->
+            <div class="card reveal">
+                <img src="https://i.postimg.cc/FN9nVGRG/photo-12-2026-03-07-22-37-25.jpg" alt="Cat" class="card-img">
+                <h3>Кошачьи шаги</h3>
+                <div class="stat">10 040 000</div>
+                <p>Столько маленьких шажков сделала бы Мелача, чтобы добраться из Брянска до Астаны и замурчать рядом.</p>
+            </div>
+
+            <!-- 13. Coffee -->
+            <div class="card reveal">
+                <img src="https://i.postimg.cc/SmRTwsc2/photo-13-2026-03-07-22-37-25.jpg" alt="Coffee" class="card-img">
+                <h3>Кофейные остановки</h3>
+                <div class="stat">8 чашек</div>
+                <p>Столько кофе мне нужно было бы выпить, чтобы ехать к тебе на машине без сна и остановок. ( кофиии печенькоооо только я так моггг)</p>
+            </div>
+
+            <!-- 14. Song Loop -->
+            <div class="card reveal">
+                <img src="https://i.postimg.cc/bz26wB6R/photo-14-2026-03-07-22-37-25.jpg" alt="Music" class="card-img">
+                <h3>Наша песня</h3>
+                <div class="stat">8 606 раз</div>
+                <p>Можно прослушать нашу любимую песню подряд по дороге к тебе, и она всё равно не надоест.</p>
+            </div>
+
+            <!-- 15. Miss You -->
+            <div class="card reveal">
+                <img src="https://i.postimg.cc/54dsYST2/photo-15-2026-03-07-22-37-25.jpg" alt="Messages" class="card-img">
+                <h3>Сообщения «Скучаю»</h3>
+                <div class="stat">Бесконечность</div>
+                <p>Количество отправленных мыслей и слов «скучаю» сквозь эти километры. Расстояние не властно над чувствами.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЮРПРИЗ: ПОДАРОК SPOTIFY PREMIUM -->
+    <section class="premium-section reveal">
+        <div class="premium-card">
+            <div class="premium-badge">✨ Сюрприз! ✨</div>
+            <h3>Ох, точно, коть...</h3>
+            <p>У тебя же нет <strong>Spotify Premium</strong> 🥺<br>Как хорошо, что я его для тебя купил! Теперь ты сможешь слушать нашу музыку без всякой рекламы.</p>
+            
+            <div class="credentials-box">
+                <div class="cred-item">
+                    <span class="cred-label">Почта для входа:</span>
+                    <span class="cred-value" onclick="copyText('parmanmalika@gmail.com', this)">parmanmalika@gmail.com</span>
+                </div>
+                <div class="cred-item">
+                    <span class="cred-label">Секретный пароль:</span>
+                    <span class="cred-value" onclick="copyText('LubluTebyaKotya!!!', this)">LubluTebyaKotya!!!</span>
+                </div>
+                <p class="hint">Нажми на текст, чтобы скопировать 🤫</p>
+            </div>
+            
+            <p class="premium-footer">Входи в свой аккаунт, любимая! 💚</p>
+        </div>
+    </section>
+
+    <!-- ИНТЕРАКТИВНАЯ КНОПКА SPOTIFY ПЛЕЙЛИСТА -->
+    <section class="playlist-section reveal">
+        <div class="playlist-card">
+            <h2>Наш саундтрек 🎶</h2>
+            <p>Этот плейлист — олицетворение моей любви. В нём собрано всё: от эмоций, похожих на резкий выстрел из дробовика, до самого уютного вечера с тобой на кухне.</p>
+            
+            <a href="https://open.spotify.com/playlist/77F7tIROWo6BfLIsFOuPpl?si=10D5q--AQKSEtNz6rnVXGA&pi=tBNULBE1Qteuk" target="_blank" class="spotify-btn">
+                <svg class="spotify-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.84.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.84.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.18-1.2-.181-1.38-.781-.18-.6.18-1.2.78-1.381 4.26-1.26 11.28-1.02 15.72 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                </svg>
+                Слушать в Spotify
+            </a>
+        </div>
+    </section>
+
+    <!-- СЮРПРИЗ СЕКЦИЯ -->
+    <section class="final-section reveal">
+        <button class="btn" onclick="openModal()">Открыть открытку</button>
+    </section>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div class="modal-overlay" id="surpriseModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">✖</button>
+            <div class="ascii-heart" style="text-align: center;">
+   ♥♥♥♥       ♥♥♥♥
+ ♥♥♥♥♥♥♥     ♥♥♥♥♥♥♥
+♥♥♥♥♥♥♥♥♥   ♥♥♥♥♥♥♥♥♥
+♥♥♥♥♥♥♥♥♥♥ ♥♥♥♥♥♥♥♥♥♥
+ ♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥
+  ♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥
+    ♥♥♥♥♥♥♥♥♥♥♥♥♥
+      ♥♥♥♥♥♥♥♥♥
+        ♥♥♥♥♥
+          ♥
+            </div>
+            
+            <!-- ТЕКСТ -->
+            <div class="modal-message">
+                <h3 style="font-size: 2.2rem; margin-bottom: 20px; text-align: center; color: var(--accent-pink); font-family: 'Caveat', cursive;">С 8 Марта, моя Малика! 🌸</h3>
+                <p>Коть я не могу подарить тебе какой-то подарок за деньги или заказать цветы но я просто не мог оставить тебя без внимания в твой день</p>
+                <p>На тебя сейчас свалилось столько стресса и волнения все таки скоро экзамен Но коть знай что бы ни случилось что бы ни было в нашей жизни мы всегда будем вместе</p>
+                <p>Наша любовь сильнее расстояния времени и денег Я рад что у меня есть такой прекрасный человек как ты спасибо что ты всегда рядышком</p>
+                <p>Коть пусть ты будешь всю жизнь светиться так же ярко как и сейчас ты мое солнышко и я люблю тебя сильнее жизни Все обязательно будет хорошо</p>
+                <p style="text-align: center; margin-top: 15px; font-weight: bold; color: var(--accent-pink);">С праздником тебя моя дорогая моя хорошенькая булка ❤️</p>
+                <p style="text-align: center; font-size: 0.9em; color: var(--text-gray); font-style: italic;">(я старался надеюсь тебе понравится этот сайт)</p>
+            </div>
+
+            <div class="modal-signature">Твой любимый</div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // 1. НАСТРОЙКА ТАЙМЕРА (С 07.07.2024)
+        const startDate = new Date("2024-07-07T00:00:00").getTime();
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const difference = now - startDate;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            const totalMinutes = difference / (1000 * 60);
+            const heartbeats = Math.floor(totalMinutes * 80);
+            document.getElementById("dynamic-heartbeats").innerText = heartbeats.toLocaleString('ru-RU');
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // 2. ФУНКЦИЯ КОПИРОВАНИЯ ТЕКСТА
+        function copyText(text, element) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = element.innerText;
+                element.innerText = "Скопировано! 💚";
+                setTimeout(() => {
+                    element.innerText = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Не удалось скопировать текст: ', err);
+            });
+        }
+
+        // 3. АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        reveals.forEach(reveal => {
+            revealOnScroll.observe(reveal);
+        });
+
+        // 4. ЛОГИКА МОДАЛЬНОГО ОКНА И ГЕНЕРАЦИЯ СЕРДЕЧЕК
+        const modal = document.getElementById('surpriseModal');
+        let heartInterval;
+
+        function openModal() {
+            modal.classList.add('active');
+            createHearts();
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            clearInterval(heartInterval);
+            const hearts = document.querySelectorAll('.floating-heart');
+            hearts.forEach(heart => heart.remove());
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        function createHearts() {
+            heartInterval = setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '♥';
+                
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '100vh';
+                heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+                heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+                
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }, 300);
+        }
+    </script>
+</body>
+</html>
